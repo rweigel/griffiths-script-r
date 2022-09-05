@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+  </head>
+
+  <link
+    id='katex-css'
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/katex@0.13.12/dist/katex.min.css"
+  />
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js">
+  </script>
+
+  <style>
+    /* https://fontsov.com/download-family/kaufmann13500.html */
+    @font-face {
+      font-family: 'Script-r';
+      src: url('ttf/U+0509-is-Kaufmann-r.ttf');
+      unicode-range: U+0509;
+    }
+    @font-face {
+      font-family: 'Script-r-Bold';
+      src: url('ttf/U+0509-is-Bold-Kaufmann-r.ttf');
+      unicode-range: U+0509;
+    }
+
+    .katex {
+      font-family: Script-r, KaTeX_Main;
+    }
+
+    .katex .mathbf {
+      font-family: Script-r-Bold, KaTeX_Main;
+    }
+
+    code {
+      background-color: lightgrey;
+      margin-right: 1em;
+    }
+    div {
+      font-size: 1em;
+      font-family: Kaufmann-Script-r, Kaufmann-Script-r-Bold, Helvetica, sans-serif;
+    }
+  </style>
+
+  <body>
+    <div>Text</div>
+    <div>r ԉ <b>r ԉ</b></div>
+    <hr/>
+    <div>KaTeX</div>
+    <code>r^2</code><span id="k1"></span><br/>
+    <code>ԉ^2</code><span id="k2"></span><br/>
+    <code>\char"0509^2</code>&nbsp;<span id="k3"></span><br/>
+    <code>\mathbf{r}\boldsymbol{\cdot}\mathbf{r}</code><span id="k4"></span><br/>
+    <code>\textbf{ԉ}\boldsymbol{\cdot}\textbf{ԉ}</code><span id="k5"></span><br/>
+  </body>
+
+  <script>
+    (function () {
+      document.getElementById('k1').innerHTML = katex.renderToString('r^2')
+      document.getElementById('k2').innerHTML = katex.renderToString('ԉ^2')
+      document.getElementById('k3').innerHTML = katex.renderToString('\\char"0509^2')
+      document.getElementById('k4').innerHTML = katex.renderToString('\\mathbf{r}\\boldsymbol{\\cdot}\\mathbf{r}')
+      document.getElementById('k5').innerHTML = katex.renderToString('\\textbf{ԉ}\\boldsymbol{\\cdot}\\textbf{ԉ}')
+    })();
+  </script>
+</html>
